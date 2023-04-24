@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/navbar/navbar";
-import { Shop } from "./components/shop/shop";
+import { ShopsFrame } from "./components/shop/shops-frame";
 import { Results } from "./components/results/results";
 // import { ShopContextProvider } from "./context/shop-context";
 
@@ -12,7 +12,7 @@ function App() {
         <Router>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Shop />} />
+            <Route path="/" element={<ShopsFrame />} />
             <Route path="/results" element={<Results />} />
           </Routes>
         </Router>

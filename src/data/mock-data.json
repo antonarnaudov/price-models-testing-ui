@@ -13,7 +13,39 @@
   "shops": [
     {
       "id": 1,
-      "name": "Shop 1",
+      "name": "Bakery Box",
+      "products_count": 13,
+      "commission": 20,
+      "discount": 5,
+      "min_profit": 0.50,
+      "profit_limit": 90,
+      "min_price": 5,
+      "max_price": 35,
+      "products": [
+        {
+          "name": "Product 1",
+          "price": 5.33,
+          "commission": 0.93,
+          "discount": 0.43,
+          "shop_profit": 4.40,
+          "min_profit": 0.30,
+          "pure_commission": 0.63
+        }
+      ],
+      "statistics": {
+        "total_commission": 0.93,
+        "total_discount": 0.43,
+        "total_shop_profit": 4.40,
+        "avg_commission": 0,
+        "avg_discount": 0,
+        "avg_shop_profit": 0,
+        "total_min_profit": 0.30,
+        "total_pure_commission": 0.63
+      }
+    },
+    {
+      "id": 2,
+      "name": "Shop 2",
       "products_count": 0,
       "commission": 0,
       "discount": 0,
@@ -30,8 +62,7 @@
           "shop_profit": 4.40,
           "min_profit": 0.30,
           "pure_commission": 0.63
-        },
-        {}
+        }
       ],
       "statistics": {
         "total_commission": 0.93,
