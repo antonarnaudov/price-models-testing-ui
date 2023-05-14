@@ -2,7 +2,7 @@ import React from "react";
 import {Stack} from "@mui/material";
 import {Link} from "react-router-dom";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import {DefaultButton, DefaultIconButton} from '../muiStyledComponents/buttons'
+import {DefaultButton, DefaultIconButton} from '../design/buttons'
 
 
 export const ResultsNav = () => {

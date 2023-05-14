@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/navbar/navbar";
 import { ShopsFrame } from "./components/shop/shops-frame";
-import { Results } from "./components/results/results";
+import { ResultsFrame } from "./components/results/results-frame";
 // import { ShopContextProvider } from "./context/shop-context";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<ShopsFrame />} />
-            <Route path="/results" element={<Results />} />
+            <Route path="/results" element={<ResultsFrame />} />
           </Routes>
         </Router>
       {/* </ShopContextProvider> */}

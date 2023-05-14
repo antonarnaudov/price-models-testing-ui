@@ -1,7 +1,8 @@
 import React from "react";
 import "./shop.css";
-import {TextField, InputAdornment, IconButton, Stack, Grid} from '@mui/material';
+import {InputAdornment, IconButton, Stack, Grid} from '@mui/material';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
+import {DefaultTextField} from "../design/textFeld";
 
 export const Shop = (props) => {
     return (
@@ -15,10 +16,15 @@ export const Shop = (props) => {
         >
 
             <Stack direction="column" spacing={5}>
-                <TextField className="name-input" label="Shop Name" defaultValue={props.data.name}></TextField>
+                {/* Shop Name */}
+                <DefaultTextField
+                    className="name-input"
+                    label="Shop Name"
+                    defaultValue={props.data.name}
+                ></DefaultTextField>
 
                 {/* Products Count */}
-                <TextField
+                <DefaultTextField
                     required
                     id="products-count"
                     label="Products count"
@@ -28,13 +34,13 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
-                ></TextField>
+                ></DefaultTextField>
             </Stack>
 
 
             <Stack direction="column" spacing={5}>
                 {/* Commission */}
-                <TextField
+                <DefaultTextField
                     required
                     id="commission"
                     label="Commission"
@@ -44,10 +50,10 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
-                ></TextField>
+                ></DefaultTextField>
 
                 {/* Discount */}
-                <TextField
+                <DefaultTextField
                     id="discount"
                     label="Discount"
                     defaultValue={props.data.discount}
@@ -56,13 +62,13 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
-                ></TextField>
+                ></DefaultTextField>
             </Stack>
 
 
             <Stack direction="column" spacing={5}>
                 {/* Min Profit per sale */}
-                <TextField
+                <DefaultTextField
                     id="min-profit-per-sale"
                     label="Min Profit per sale"
                     defaultValue={props.data.min_profit}
@@ -71,10 +77,10 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
-                ></TextField>
+                ></DefaultTextField>
 
                 {/* Profit Limit */}
-                <TextField
+                <DefaultTextField
                     id="profit-limit"
                     label="Profit limit"
                     defaultValue={props.data.profit_limit}
@@ -83,13 +89,13 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
-                ></TextField>
+                ></DefaultTextField>
             </Stack>
 
 
             <Stack direction="column" spacing={5}>
                 {/* Min Product Price */}
-                <TextField
+                <DefaultTextField
                     required
                     id="min-product-price"
                     label="Min Product Price"
@@ -99,10 +105,10 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
-                ></TextField>
+                ></DefaultTextField>
 
                 {/* Max Product Price */}
-                <TextField
+                <DefaultTextField
                     required
                     id="max-product-price"
                     label="Max Product Price"
@@ -112,7 +118,7 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
-                ></TextField>
+                ></DefaultTextField>
             </Stack>
 
             {/* Delete Button */}

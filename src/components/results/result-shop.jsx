@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 // import { ShopContext } from "../../context/shop-context";
 
 export const ResultShop = (props) => {
@@ -8,21 +8,7 @@ export const ResultShop = (props) => {
 
   return (
     <div className="resultShop">
-      {/* <img src={productImage} />
-      <div className="description">
-        <p>
-          <b>{productName}</b>
-        </p>
-        <p> Price: ${price}</p>
-        <div className="countHandler">
-          <button onClick={() => removeFromCart(id)}> - </button>
-          <input
-            value={cartItems[id]}
-            onChange={(e) => updateCartItemCount(Number(e.target.value), id)}
-          />
-          <button onClick={() => addToCart(id)}> + </button>
-        </div>
-      </div> */}
+
     </div>
   );
 };

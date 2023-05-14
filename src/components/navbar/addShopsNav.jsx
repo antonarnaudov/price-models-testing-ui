@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {Stack, Typography} from '@mui/material';
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 
-import {DefaultButton, LargeButton, DisabledButton, DefaultIconButton} from '../muiStyledComponents/buttons'
+import {DefaultButton, LargeButton, DisabledButton, DefaultIconButton} from '../design/buttons'
 
 
 export const AddShopsNav = () => {
