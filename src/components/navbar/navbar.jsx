@@ -7,7 +7,7 @@ import {AddShopsNav} from './addShopsNav'
 import {ResultsNav} from './resultsNav'
 
 
-export const Navbar = () => {
+export const Navbar = ({onAddShop}) => {
     const location = useLocation()
 
     return (
@@ -17,7 +17,7 @@ export const Navbar = () => {
                 location.pathname === '/results' ? (
                     <ResultsNav/>
                 ) : (
-                    <AddShopsNav/>
+                    <AddShopsNav onAddShop={onAddShop}/>
                 )
             }
         </AppBar>

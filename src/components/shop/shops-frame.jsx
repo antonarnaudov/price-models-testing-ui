@@ -1,13 +1,12 @@
+import "./shop.css";
 import React from "react";
 import {Shop} from "./shop";
-import "./shop.css";
-import data from "../../data/mock-data.json"
 
-export const ShopsFrame = () => {
+export const ShopsFrame = ({onDeleteShop}) => {
     return (
         <div className="shops-frame">
-            {data.shops.map((shop) => (
-                <Shop key={shop.id} data={shop}/>
+            {JSON.parse(localStorage.getItem("shops") || "[]").map((shop) => (
+                <Shop key={shop.id} data={shop} onDeleteShop={onDeleteShop}/>
             ))}
         </div>
     );

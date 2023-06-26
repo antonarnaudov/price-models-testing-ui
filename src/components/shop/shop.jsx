@@ -1,8 +1,11 @@
-import React from "react";
 import "./shop.css";
-import {InputAdornment, IconButton, Stack, Grid} from '@mui/material';
+import React from "react";
+
+import {InputAdornment, IconButton, Stack} from '@mui/material';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
+
 import {DefaultTextField} from "../design/textFeld";
+import {updateShopField} from '../../data/crud-shop'
 
 export const Shop = (props) => {
     return (
@@ -21,6 +24,7 @@ export const Shop = (props) => {
                     className="name-input"
                     label="Shop Name"
                     defaultValue={props.data.name}
+                    onChange={(e) => updateShopField(props.data.id, 'name', e.target.value)}
                 ></DefaultTextField>
 
                 {/* Products Count */}
@@ -34,6 +38,8 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
+                    onChange={(e) => updateShopField(props.data.id, 'products_count', e.target.value)}
+
                 ></DefaultTextField>
             </Stack>
 
@@ -50,6 +56,7 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
+                    onChange={(e) => updateShopField(props.data.id, 'commission', e.target.value)}
                 ></DefaultTextField>
 
                 {/* Discount */}
@@ -62,6 +69,7 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
+                    onChange={(e) => updateShopField(props.data.id, 'discount', e.target.value)}
                 ></DefaultTextField>
             </Stack>
 
@@ -77,6 +85,7 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
+                    onChange={(e) => updateShopField(props.data.id, 'min_profit', e.target.value)}
                 ></DefaultTextField>
 
                 {/* Profit Limit */}
@@ -89,6 +98,7 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
+                    onChange={(e) => updateShopField(props.data.id, 'profit_limit', e.target.value)}
                 ></DefaultTextField>
             </Stack>
 
@@ -105,6 +115,7 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
+                    onChange={(e) => updateShopField(props.data.id, 'min_price', e.target.value)}
                 ></DefaultTextField>
 
                 {/* Max Product Price */}
@@ -118,11 +129,17 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
+                    onChange={(e) => updateShopField(props.data.id, 'max_price', e.target.value)}
                 ></DefaultTextField>
             </Stack>
 
             {/* Delete Button */}
-            <IconButton variant="outlined" color="error" sx={{fontSize: "40px"}}>
+            <IconButton
+                variant="outlined"
+                color="error"
+                sx={{fontSize: "40px"}}
+                onClick={() => props.onDeleteShop(props.data.id)}
+            >
                 <DeleteForeverRoundedIcon fontSize="inherit"/>
             </IconButton>
         </Stack>

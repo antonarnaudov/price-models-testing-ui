@@ -7,13 +7,16 @@ import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 import {DefaultButton, LargeButton, DisabledButton, DefaultIconButton} from '../design/buttons'
 
 
-export const AddShopsNav = () => {
+export const AddShopsNav = ({onAddShop}) => {
     return (
         <Stack direction="row" justifyContent="space-around">
             <DefaultButton> Import </DefaultButton>
 
 
-            <LargeButton sx={{marginLeft: '5rem'}}>
+            <LargeButton
+                sx={{marginLeft: '5rem'}}
+                onClick={onAddShop}
+            >
                 <Typography fontWeight="bold">ADD SHOP</Typography>
             </LargeButton>
 
