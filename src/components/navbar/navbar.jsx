@@ -1,28 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Play, House } from "phosphor-react";
 import "./navbar.css";
+import React from "react";
+import {AppBar} from '@mui/material';
+import {useLocation} from 'react-router-dom'
+
+import {AddShopsNav} from './addShopsNav'
+import {ResultsNav} from './resultsNav'
+
 
 export const Navbar = () => {
-  return (
-    <div className="navbar">
-      <div className="links">
-        <Link> Import </Link>
-        <Link> Export </Link>
+    const location = useLocation()
 
-        <Link to="/">
-          <House size={32} />
-        </Link>
-
-        <Link> ADD SHOP </Link>
-        
-        <Link to="/results"> Results </Link>
-        
-        <Link>
-          <Play size={32} />
-        </Link>
-      
-      </div>
-    </div>
-  );
+    return (
+        <AppBar className="navbar" position="fixed" sx={{bgcolor: "whitesmoke"}}>
+            {
+                // Route Based Navigation
+                location.pathname === '/results' ? (
+                    <ResultsNav/>
+                ) : (
+                    <AddShopsNav/>
+                )
+            }
+        </AppBar>
+    );
 };
