@@ -21,12 +21,12 @@ export function createShop() {
             "id": sequence,
             "name": "",
             "products_count": 0,
-            "commission": 0,
-            "discount": 0,
-            "min_profit": 0,
-            "profit_limit": 0,
-            "min_price": 0,
-            "max_price": 0
+            "commission": "0.00",
+            "discount": "0.00",
+            "min_profit": "0.00",
+            "profit_limit": "0.00",
+            "min_price": "0.00",
+            "max_price": "0.00"
         })
 
         localStorage.setItem('shops', JSON.stringify(shops))
@@ -47,6 +47,7 @@ export function updateShopField(id, key, value) {
 
         shops[index][key] = value
         localStorage.setItem('shops', JSON.stringify(shops))
+        return value
     } catch (e) {
         console.error(e)
     }

@@ -8,6 +8,10 @@ import {DefaultTextField} from "../design/textFeld";
 import {updateShopField} from '../../data/crud-shop'
 
 export const Shop = (props) => {
+    const toInt = (value) => value.replace(/[^\d.-]/g, '')
+
+    const toFloat = (value) => value.replace(/[^\d.-]|(?<=\..*)\./g, '') || '0.00'
+
     return (
         <Stack
             id={props.data.id}
@@ -17,7 +21,6 @@ export const Shop = (props) => {
             alignItems="center"
             spacing={2}
         >
-
             <Stack direction="column" spacing={5}>
                 {/* Shop Name */}
                 <DefaultTextField
@@ -36,10 +39,9 @@ export const Shop = (props) => {
                     InputProps={{
                         startAdornment: <InputAdornment position="start">$</InputAdornment>,
                         inputMode: 'numeric',
-                        pattern: '[0-9]*'
+                        pattern: '/\\D/g'
                     }}
-                    onChange={(e) => updateShopField(props.data.id, 'products_count', e.target.value)}
-
+                    onChange={(e) => updateShopField(props.data.id, 'products_count', toInt(e.target.value))}
                 ></DefaultTextField>
             </Stack>
 
@@ -56,7 +58,7 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
-                    onChange={(e) => updateShopField(props.data.id, 'commission', e.target.value)}
+                    onChange={(e) => updateShopField(props.data.id, 'commission', toFloat(e.target.value))}
                 ></DefaultTextField>
 
                 {/* Discount */}
@@ -69,7 +71,7 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
-                    onChange={(e) => updateShopField(props.data.id, 'discount', e.target.value)}
+                    onChange={(e) => updateShopField(props.data.id, 'discount', toFloat(e.target.value))}
                 ></DefaultTextField>
             </Stack>
 
@@ -85,7 +87,7 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
-                    onChange={(e) => updateShopField(props.data.id, 'min_profit', e.target.value)}
+                    onChange={(e) => updateShopField(props.data.id, 'min_profit', toFloat(e.target.value))}
                 ></DefaultTextField>
 
                 {/* Profit Limit */}
@@ -98,7 +100,7 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
-                    onChange={(e) => updateShopField(props.data.id, 'profit_limit', e.target.value)}
+                    onChange={(e) => updateShopField(props.data.id, 'profit_limit', toFloat(e.target.value))}
                 ></DefaultTextField>
             </Stack>
 
@@ -115,7 +117,7 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
-                    onChange={(e) => updateShopField(props.data.id, 'min_price', e.target.value)}
+                    onChange={(e) => updateShopField(props.data.id, 'min_price', toFloat(e.target.value))}
                 ></DefaultTextField>
 
                 {/* Max Product Price */}
@@ -129,7 +131,7 @@ export const Shop = (props) => {
                         inputMode: 'numeric',
                         pattern: '[0-9]*'
                     }}
-                    onChange={(e) => updateShopField(props.data.id, 'max_price', e.target.value)}
+                    onChange={(e) => updateShopField(props.data.id, 'max_price', toFloat(e.target.value))}
                 ></DefaultTextField>
             </Stack>
 
