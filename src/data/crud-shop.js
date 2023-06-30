@@ -47,7 +47,6 @@ export function updateShopField(id, key, value) {
 
         shops[index][key] = value
         localStorage.setItem('shops', JSON.stringify(shops))
-        return value
     } catch (e) {
         console.error(e)
     }
