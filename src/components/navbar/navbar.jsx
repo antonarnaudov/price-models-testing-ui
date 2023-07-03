@@ -7,7 +7,7 @@ import {AddShopsNav} from './addShopsNav'
 import {ResultsNav} from './resultsNav'
 
 
-export const Navbar = ({onAddShop}) => {
+export const Navbar = ({shops, onAddShop, setShouldRedirect}) => {
     const location = useLocation()
 
     return (
@@ -17,7 +17,11 @@ export const Navbar = ({onAddShop}) => {
                 location.pathname === '/results' ? (
                     <ResultsNav/>
                 ) : (
-                    <AddShopsNav onAddShop={onAddShop}/>
+                    <AddShopsNav
+                        shops={shops}
+                        onAddShop={onAddShop}
+                        setShouldRedirect={setShouldRedirect}
+                    />
                 )
             }
         </AppBar>

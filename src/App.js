@@ -10,16 +10,25 @@ import {createShop, deleteShop} from "./data/crud-shop";
 // import { ShopContextProvider } from "./context/shop-context";
 
 function App() {
-    const [_, setShops] = useState(JSON.parse(localStorage.getItem("shops") || "[]"));
+    const [shops, setShops] = useState(JSON.parse(localStorage.getItem("shops") || "[]"));
+    const [shouldRedirect, setShouldRedirect] = useState(false);
     const handleDeleteShop = (id) => setShops(deleteShop(id))
 
     return (
         <div className="App">
             {/* <ShopContextProvider> */}
             <Router>
-                <Navbar onAddShop={() => setShops(createShop())}/>
+                <Navbar
+                    shops={shops}
+                    onAddShop={() => setShops(createShop())}
+                    setShouldRedirect={setShouldRedirect}
+                />
                 <Routes>
-                    <Route path="/" element={<ShopsFrame onDeleteShop={handleDeleteShop}/>}/>
+                    <Route path="/" element={
+                        <ShopsFrame
+                            onDeleteShop={handleDeleteShop}
+                            shouldRedirect={shouldRedirect}
+                        />}/>
                     <Route path="/results" element={<ResultsFrame/>}/>
                 </Routes>
             </Router>
