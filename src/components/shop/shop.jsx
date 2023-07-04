@@ -43,7 +43,6 @@ export const Shop = (props) => {
                     id="products-count"
                     label="Products count"
                     value={store.products_count}
-                    InputProps={{startAdornment: <InputAdornment position="start">$</InputAdornment>}}
                     onInput={(e) => onChangeNumberField(e, toInt, 'products_count')}
                 ></DefaultTextField>
             </Stack>
