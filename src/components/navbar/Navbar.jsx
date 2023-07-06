@@ -1,13 +1,13 @@
 import "./navbar.css";
 import React from "react";
-import {AppBar} from '@mui/material';
 import {useLocation} from 'react-router-dom'
 
-import {AddShopsNav} from './addShopsNav'
-import {ResultsNav} from './resultsNav'
+import {AppBar} from '@mui/material';
 
+import {AddShopsNav} from './AddShopsNav'
+import {ResultsNav} from './ResultsNav'
 
-export const Navbar = () => {
+export const Navbar = ({shops, onAddShop, setShouldRedirect}) => {
     const location = useLocation()
 
     return (
@@ -17,7 +17,11 @@ export const Navbar = () => {
                 location.pathname === '/results' ? (
                     <ResultsNav/>
                 ) : (
-                    <AddShopsNav/>
+                    <AddShopsNav
+                        shops={shops}
+                        onAddShop={onAddShop}
+                        setShouldRedirect={setShouldRedirect}
+                    />
                 )
             }
         </AppBar>
