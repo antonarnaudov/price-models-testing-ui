@@ -1,21 +1,22 @@
 import "./navbar.css";
 import React from "react";
 import {Link} from "react-router-dom";
+
 import {Stack, Typography} from '@mui/material';
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 
-import {DefaultButton, LargeButton, DisabledButton, DefaultIconButton} from '../design/buttons'
-import {generateProducts} from "../../data/generate-products";
-import {generateStatistics} from "../../data/generate-statistics";
+import {DefaultButton, LargeButton, DisabledButton, DefaultIconButton} from '../design/Button'
+
+import {getGlobalStatistics} from "../../data/local-storage";
+import {generateProductsAndStatistics} from "../../data/generate-products-and-statistics";
 
 
 export const AddShopsNav = ({shops, onAddShop, setShouldRedirect}) => {
-    const globalStatistics = JSON.parse(localStorage.getItem("global_statistics") || "{}")
+    const globalStatistics = getGlobalStatistics()
 
     function startGeneration() {
-        generateProducts()
-        generateStatistics()
-        setShouldRedirect(true);
+        generateProductsAndStatistics()
+        setShouldRedirect(true)
     }
 
     return (

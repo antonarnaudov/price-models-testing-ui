@@ -10,8 +10,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import {DefaultTextField} from "../design/textFeld";
-import {ResultShop} from "./result-shop";
+import {DefaultTextField} from "../design/TextFeld";
+import {ResultShop} from "./ResultShop";
 // import { ShopContext } from "../../context/shop-context";
 
 // TODO: To be continued

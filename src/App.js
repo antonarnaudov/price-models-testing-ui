@@ -2,15 +2,17 @@ import "./App.css";
 import {useState} from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
-import {Navbar} from "./components/navbar/navbar";
-import {ShopsFrame} from "./components/shop/shops-frame";
-import {ResultsFrame} from "./components/results/results-frame";
+import {Navbar} from "./components/navbar/Navbar";
+import {ShopsFrame} from "./components/shop/ShopsFrame";
+import {ResultsFrame} from "./components/results/ResultsFrame";
+
+import {getShops} from "./data/local-storage";
 import {createShop, deleteShop} from "./data/crud-shop";
 
 // import { ShopContextProvider } from "./context/shop-context";
 
 function App() {
-    const [shops, setShops] = useState(JSON.parse(localStorage.getItem("shops") || "[]"));
+    const [shops, setShops] = useState(getShops());
     const [shouldRedirect, setShouldRedirect] = useState(false);
     const handleDeleteShop = (id) => setShops(deleteShop(id))
 

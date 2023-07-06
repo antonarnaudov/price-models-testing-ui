@@ -4,18 +4,28 @@ import React, {useState} from "react";
 import {InputAdornment, IconButton, Stack} from '@mui/material';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 
-import {DefaultTextField} from "../design/textFeld";
+import {DefaultTextField} from "../design/TextFeld";
+
+import {toFloat, toInt} from "../../data/helpers";
 import {updateShopField} from '../../data/crud-shop'
+import {getAllProductsCount} from "../../data/local-storage";
 
 export const Shop = (props) => {
-    const toInt = (value) => value.replace(/\D/g, '')
-    const toFloat = (value) => value.replace(/[^\d.]|(?<=\..*)\./g, '')
 
     const [store, setStore] = useState({...props.data});
     const onChangeNumberField = (event, typeFn, key) => {
-        const value = typeFn(event.target.value);
+        let value = typeFn(event.target.value);
 
         updateShopField(props.data.id, key, value)
+        if (key === 'products_count') {
+            const limit = 20000
+            const products = Number(getAllProductsCount())
+            if (products > limit) {
+                value = limit - (products - Number(value))
+                updateShopField(props.data.id, key, value)
+                alert(`Products should be no more than ${value} as the maximum capacity for products is ${limit}`)
+            }
+        }
         setStore({...store, [key]: value})
     }
 

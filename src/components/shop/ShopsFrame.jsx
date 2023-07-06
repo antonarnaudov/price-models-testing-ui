@@ -1,14 +1,17 @@
 import "./shop.css";
 import React from "react";
-import {Shop} from "./shop";
-import {Redirect} from "../redirect/redirect";
+
+import {Shop} from "./Shop";
+import {Redirect} from "../redirect/Redirect";
+
+import {getShops} from "../../data/local-storage";
 
 export const ShopsFrame = ({onDeleteShop, shouldRedirect}) => {
     return (
         <div className="shops-frame">
             {shouldRedirect && <Redirect url={'/results'} text={'Generating Results...'}/>}
 
-            {JSON.parse(localStorage.getItem("shops") || "[]").map((shop) => (
+            {getShops().map((shop) => (
                 <Shop
                     key={shop.id}
                     data={shop}

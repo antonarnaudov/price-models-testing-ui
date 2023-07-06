@@ -1,21 +1,10 @@
-function generateSequence(shops, currentSequence) {
-    let sequence = currentSequence ? (shops.length > 0 && currentSequence) : 0
-
-    if (!currentSequence) for (let i = 0; i < shops.length; i++) {
-        console.log('here')
-        if (shops[i].id > sequence) sequence = shops[i].id
-    }
-
-    return ++sequence
-}
+import {generateSequence} from "./helpers";
+import {getSequence, getShops, setAllProductsCount, setSequence, setShops} from "./local-storage";
 
 export function createShop() {
-    const localStorageShops = localStorage.getItem('shops')
-    const localStorageSequence = localStorage.getItem('shops_sequence')
-
     try {
-        const shops = JSON.parse(localStorageShops || '[]')
-        const sequence = generateSequence(shops, JSON.parse(localStorageSequence))
+        const shops = getShops()
+        const sequence = generateSequence(shops, getSequence())
 
         shops.push({
             "id": sequence,
@@ -29,8 +18,8 @@ export function createShop() {
             "max_price": "0.00"
         })
 
-        localStorage.setItem('shops', JSON.stringify(shops))
-        localStorage.setItem('shops_sequence', JSON.stringify(sequence))
+        setShops(shops) // Update Shops
+        setSequence(sequence) // Update Sequence
 
         return shops
     } catch (e) {
@@ -39,28 +28,29 @@ export function createShop() {
 }
 
 export function updateShopField(id, key, value) {
-    const localStorageShops = localStorage.getItem('shops')
-
     try {
-        const shops = JSON.parse(localStorageShops || '[]')
-        const index = shops.findIndex(shop => shop.id === id)
+        const shops = getShops()
+        const index = shops.findIndex(shop => shop.id === id) // Get Shop index by id
 
-        shops[index][key] = value
-        localStorage.setItem('shops', JSON.stringify(shops))
+        shops[index][key] = value // Update Field
+        setShops(shops) // Update Shops
+
+        // If products_count field is Updated, Update All Products Count
+        if (key === 'products_count') setAllProductsCount(shops)
     } catch (e) {
         console.error(e)
     }
 }
 
 export function deleteShop(id) {
-    const localStorageShops = localStorage.getItem('shops')
-
     try {
-        const shops = JSON.parse(localStorageShops || '[]')
-        const index = shops.findIndex(shop => shop.id === id)
+        const shops = getShops()
+        const index = shops.findIndex(shop => shop.id === id) // Get Shop index by id
 
-        shops.splice(index, 1)
-        localStorage.setItem('shops', JSON.stringify(shops))
+        shops.splice(index, 1) // Remove shop from Shops Array
+
+        setShops(shops) // Update Shops
+        setAllProductsCount(shops) // Update All Products Count
 
         return shops
     } catch (e) {
