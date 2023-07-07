@@ -5,6 +5,7 @@ import {Stack} from "@mui/material";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 
 import {DefaultButton, DefaultIconButton} from '../design/Button'
+import {exportData} from "../../data/import-export";
 
 export const ResultsNav = () => {
     return (
@@ -13,7 +14,7 @@ export const ResultsNav = () => {
                 <HomeRoundedIcon color='inherit' sx={{fontSize: '2.5rem'}}/>
             </DefaultIconButton>
 
-            <DefaultButton sx={{marginLeft: '5%'}}> Export </DefaultButton>
+            <DefaultButton sx={{marginLeft: '5%'}} onClick={exportData}> Export </DefaultButton>
         </Stack>
     )
 }

@@ -7,6 +7,7 @@ import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 
 import {DefaultButton, LargeButton, DisabledButton, DefaultIconButton} from '../design/Button'
 
+import {importFile} from "../../data/import-export";
 import {getGlobalStatistics} from "../../data/local-storage";
 import {generateProductsAndStatistics} from "../../data/generate-products-and-statistics";
 
@@ -21,9 +22,13 @@ export const AddShopsNav = ({shops, onAddShop, setShouldRedirect}) => {
 
     return (
         <Stack direction="row" justifyContent="space-around">
-            <DefaultButton> Import </DefaultButton>
+            {/*   Import Button   */}
+            <DefaultButton component="label">
+                Import
+                <input type="file" accept=".json" hidden onChange={importFile}/>
+            </DefaultButton>
 
-
+            {/*   Add Shop Button   */}
             <LargeButton
                 sx={{marginLeft: '5rem'}}
                 onClick={onAddShop}
@@ -34,13 +39,17 @@ export const AddShopsNav = ({shops, onAddShop, setShouldRedirect}) => {
 
             <Stack direction="row">
 
+                {/*   Results Button   */}
                 <DefaultButton
                     to="/results"
                     component={Link}
                     sx={{marginRight: '5rem'}}
                     disabled={Object.keys(globalStatistics).length === 0}
-                > Results </DefaultButton>
+                >
+                    Results
+                </DefaultButton>
 
+                {/*   Start Button   */}
                 <DefaultIconButton
                     size='large'
                     disabled={Array.isArray(shops) && shops.length === 0}

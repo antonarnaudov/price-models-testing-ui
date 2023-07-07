@@ -2,7 +2,7 @@ import "./shop.css";
 import React from "react";
 
 import {Shop} from "./Shop";
-import {Redirect} from "../redirect/Redirect";
+import {Redirect} from "../popup/Redirect";
 
 import {getShops} from "../../data/local-storage";
 
