@@ -1,3 +1,4 @@
+// LocalStorage Shops
 export function getShops() {
     try {
         return JSON.parse(localStorage.getItem('shops') || '[]')
@@ -14,6 +15,8 @@ export function setShops(shops) {
     }
 }
 
+
+// LocalStorage Sequence
 export function getSequence() {
     try {
         return JSON.parse(localStorage.getItem('shops_sequence') || '0')
@@ -30,6 +33,8 @@ export function setSequence(sequence) {
     }
 }
 
+
+// LocalStorage Products Count
 export function getAllProductsCount() {
     try {
         return JSON.parse(localStorage.getItem('all_products_count') || '0')
@@ -48,6 +53,8 @@ export function setAllProductsCount(shops) {
     }
 }
 
+
+// LocalStorage Global Statistics
 export function getGlobalStatistics() {
     try {
         return JSON.parse(localStorage.getItem('global_statistics') || '{}')
