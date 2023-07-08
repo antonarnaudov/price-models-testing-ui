@@ -1,19 +1,40 @@
 .results-frame {
-  background-color: white;
-  height: 100vh;
-  padding-top: 5rem;
+    background-color: white;
+    height: 100vh;
+    padding-top: 5rem;
 }
 
-.results {
-  background-color: #F9F9F9;
-  width: 80%;
-  margin: 3rem auto;
-  border: 3px solid #333333;
-  border-radius: 10px;
-  padding: 3rem 2rem;
-  box-sizing: border-box;
+.shops-table {
+    background-color: #F9F9F9;
+    margin: 3rem auto;
+    border: 3px solid #333333;
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    box-sizing: border-box;
+}
+
+.global-statistics-box {
+    background-color: #F9F9F9;
+    width: 80%;
+    margin: 3rem auto;
+    border: 3px solid #333333;
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    box-sizing: border-box;
 }
 
 .MuiInputLabel-root {
-  color: #333333 !important;
+    color: #333333 !important;
 }
+
+.border-left {
+    border-left: 1px solid rgba(224, 224, 224, 1);
+}
+
+/*.shops-statistics {*/
+/*    border-bottom: 1px solid rgba(224, 224, 224, 1);*/
+/*}*/
+
+/*.shops-statistics:last-child {*/
+/*    border-bottom: none;*/
+/*}*/

@@ -46,8 +46,11 @@ export function getAllProductsCount() {
 export function setAllProductsCount(shops) {
     try {
         let products = 0
+
         shops.forEach(shop => products += Number(shop.products_count))
         localStorage.setItem('all_products_count', JSON.stringify(products))
+
+        return products
     } catch (e) {
         console.error(e)
     }
