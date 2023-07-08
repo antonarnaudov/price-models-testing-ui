@@ -14,9 +14,9 @@ export function setValuesToFixed(obj) {
 export function generateSequence(shops, currentSequence) {
     let sequence = currentSequence ? (shops.length > 0 && currentSequence) : 0
 
-    if (!currentSequence) for (let i = 0; i < shops.length; i++) {
-        if (shops[i].id > sequence) sequence = shops[i].id
-    }
+    if (!currentSequence) shops.forEach(shop => {
+        if (shop.id > sequence) sequence = shop.id
+    })
 
     return ++sequence
 }

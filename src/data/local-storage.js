@@ -16,7 +16,7 @@ export function setShops(shops) {
 
 export function getSequence() {
     try {
-        return JSON.parse(localStorage.getItem('shops_sequence') || '[]')
+        return JSON.parse(localStorage.getItem('shops_sequence') || '0')
     } catch (e) {
         console.error(e)
     }
