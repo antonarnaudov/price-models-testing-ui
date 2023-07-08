@@ -1,6 +1,6 @@
 import Decimal from 'decimal.js'
 import {setValuesToFixed} from "./helpers";
-import {getAllProductsCount, getShops, setGlobalStatistics, setShops} from "./local-storage";
+import {getShops, setAllProductsCount, setGlobalStatistics, setShops} from "./local-storage";
 
 Decimal.set({rounding: 4})
 
@@ -8,6 +8,7 @@ Decimal.set({rounding: 4})
 function generateGlobalStatistics(shops) {
     try {
         let globalStatistics = {
+            "total_shops_count": 0,
             "total_products_count": 0,
             "total_products_commissioned": 0,
             "total_commission": new Decimal(0),
@@ -32,7 +33,9 @@ function generateGlobalStatistics(shops) {
             globalStatistics.total_min_profit = globalStatistics.total_min_profit.plus(new Decimal(shop.statistics.total_min_profit))
             globalStatistics.total_pure_commission = globalStatistics.total_pure_commission.plus(new Decimal(shop.statistics.total_pure_commission))
         })
-        globalStatistics.total_products_count = getAllProductsCount()
+
+        globalStatistics.total_shops_count = shops.length
+        globalStatistics.total_products_count = setAllProductsCount(shops)
 
         setValuesToFixed(globalStatistics)
         setGlobalStatistics(globalStatistics)
@@ -47,7 +50,7 @@ export function generateProductsAndStatistics() {
         shops.forEach(shop => { // Create Products and Statistics per Shop
             const profitLimit = new Decimal(shop.profit_limit)
             shop['products'] = []
-            shop['statistics'] = {
+            shop.statistics = {
                 total_products_commissioned: 0,
                 total_commission: new Decimal(0),
                 total_discount: new Decimal(0),
@@ -110,10 +113,11 @@ export function generateProductsAndStatistics() {
                 shop.statistics.total_pure_commission = shop.statistics.total_pure_commission.plus(pureCommission)
             }
             // Calculate Shop Average Statistics
+            const productsCount = new Decimal(shop.products_count)
             const productsCommissioned = new Decimal(shop.statistics.total_products_commissioned)
             shop.statistics.avg_commission = shop.statistics.total_commission.dividedBy(productsCommissioned)
-            shop.statistics.avg_discount = shop.statistics.total_discount.dividedBy(productsCommissioned)
-            shop.statistics.avg_shop_profit = shop.statistics.total_shop_profit.dividedBy(productsCommissioned)
+            shop.statistics.avg_discount = shop.statistics.total_discount.dividedBy(productsCount)
+            shop.statistics.avg_shop_profit = shop.statistics.total_shop_profit.dividedBy(productsCount)
 
             setValuesToFixed(shop.statistics) // Parse Statistics from Decimal to floats
         })

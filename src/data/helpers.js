@@ -1,5 +1,7 @@
 import Decimal from "decimal.js";
 
+Decimal.set({rounding: 4})
+
 export const toInt = (value) => value.replace(/\D/g, '')
 export const toFloat = (value) => value.replace(/[^\d.]|(?<=\..*)\./g, '')
 
