@@ -1,26 +1,23 @@
+#title {
+    padding-top: 0;
+    margin-top: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .results-frame {
     background-color: white;
     height: 100vh;
     padding-top: 5rem;
 }
 
-.shops-table {
+.shops-table, .global-statistics-table {
     background-color: #F9F9F9;
     margin: 3rem auto;
     border: 3px solid #333333;
     border-radius: 10px;
     padding: 3rem 2rem;
     box-sizing: border-box;
-}
-
-.global-statistics-box {
-    background-color: #F9F9F9;
-    width: 80%;
-    margin: 3rem auto;
-    border: 3px solid #333333;
-    border-radius: 10px;
-    padding: 3rem 2rem;
-    box-sizing: border-box;
+    text-align: center;
 }
 
 .MuiInputLabel-root {
