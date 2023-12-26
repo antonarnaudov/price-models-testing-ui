@@ -11,23 +11,23 @@ export const GlobalStatistics = () => {
         <React.Fragment>
             <TableRow className='global-statistics'>
                 {/*                                Info                                */}
-                <TableCell style={{paddingLeft: 55}} colSpan={2}>{globalStatistics.total_shops_count}</TableCell>
-                <TableCell>{globalStatistics.total_products_count}</TableCell>
-
-                {/*                             Total Values                           */}
-                <TableCell className='border-left'>{globalStatistics.total_commission} лв</TableCell>
-                <TableCell>{globalStatistics.total_discount} лв</TableCell>
-                <TableCell>{globalStatistics.total_shop_profit} лв</TableCell>
-
-                {/*                            Average Values                          */}
-                <TableCell className='border-left'>{globalStatistics.avg_commission} лв</TableCell>
-                <TableCell>{globalStatistics.avg_discount} лв</TableCell>
-                <TableCell>{globalStatistics.avg_shop_profit} лв</TableCell>
+                <TableCell className='table-cell' >{globalStatistics.total_shops_count}</TableCell>
+                <TableCell className='table-cell'>{globalStatistics.total_products_count}</TableCell>
 
                 {/*                         Commission Breakdown                       */}
-                <TableCell className='border-left'>{globalStatistics.total_products_commissioned}</TableCell>
-                <TableCell>{globalStatistics.total_pure_commission} лв</TableCell>
-                <TableCell>{globalStatistics.total_min_profit} лв</TableCell>
+                <TableCell className='border-left-dark table-cell'>{globalStatistics.total_products_commissioned}</TableCell>
+                <TableCell className='table-cell'>{globalStatistics.total_pure_commission} лв</TableCell>
+                <TableCell className='table-cell'>{globalStatistics.total_min_profit} лв</TableCell>
+
+                {/*                            Average Values                          */}
+                <TableCell className='border-left-dark table-cell'>{globalStatistics.avg_commission} лв</TableCell>
+                <TableCell className='table-cell'>{globalStatistics.avg_discount} лв</TableCell>
+                <TableCell className='table-cell'>{globalStatistics.avg_shop_profit} лв</TableCell>
+
+                {/*                             Total Values                           */}
+                <TableCell className='border-left-dark table-cell'>{globalStatistics.total_commission} лв</TableCell>
+                <TableCell className='table-cell'>{globalStatistics.total_discount} лв</TableCell>
+                <TableCell className='table-cell'>{globalStatistics.total_shop_profit} лв</TableCell>
             </TableRow>
         </React.Fragment>
     );

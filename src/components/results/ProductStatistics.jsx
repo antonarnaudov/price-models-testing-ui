@@ -6,6 +6,7 @@ import {Typography} from "@mui/material";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
+import {ZebraStyleTableRow} from "../design/TableRow"
 
 export const ProductStatistics = ({products, open}) => {
     return (
@@ -30,7 +31,7 @@ export const ProductStatistics = ({products, open}) => {
                             </TableHead>
                             <TableBody>
                                 {products.map((product) => (
-                                    <TableRow key={product.id}>
+                                    <ZebraStyleTableRow key={product.id}>
                                         <TableCell>{product.name}</TableCell>
                                         <TableCell>{product.price} лв</TableCell>
                                         <TableCell>{product.commission} лв</TableCell>
@@ -38,7 +39,7 @@ export const ProductStatistics = ({products, open}) => {
                                         <TableCell>{product.shop_profit} лв</TableCell>
                                         <TableCell>{product.min_profit} лв</TableCell>
                                         <TableCell>{product.pure_commission} лв</TableCell>
-                                    </TableRow>
+                                    </ZebraStyleTableRow>
                                 ))}
                             </TableBody>
                         </Table>

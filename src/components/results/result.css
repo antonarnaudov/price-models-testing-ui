@@ -1,7 +1,9 @@
 #title {
-    padding-top: 0;
-    margin-top: 0;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px 0;
+    margin: 0;
+    font-size: 30px;
+    text-align: center;
+    background-color: rgb(220, 218, 215);
 }
 
 .results-frame {
@@ -10,28 +12,93 @@
     padding-top: 5rem;
 }
 
+.shops-statistics {
+    border-bottom: 1px solid #333333 !important;
+}
+
+.shops-statistics:nth-last-child(2) {
+    border-bottom: none !important;
+}
+
 .shops-table, .global-statistics-table {
     background-color: #F9F9F9;
     margin: 3rem auto;
     border: 3px solid #333333;
     border-radius: 10px;
-    padding: 3rem 2rem;
     box-sizing: border-box;
-    text-align: center;
 }
 
-.MuiInputLabel-root {
-    color: #333333 !important;
+.table {
+    border-radius: 2px;
+    border-top: 1px solid #333333;
+}
+
+.table-head {
+    background-color: lightgray;
+}
+
+.table-cell {
+    background-color: white;
+    font-weight: bolder !important;
+    font-size: 16px !important;
+    padding: 15px !important;
+    border-bottom: none !important;
+    border-left: 1px solid lightgray;
+    text-align: center !important;
+}
+
+.table-cell:hover {
+    background-color: whitesmoke;
+    transform: scale(1.1);
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+}
+
+/* Add Borders and text manipulation for Colored cells*/
+.info-cell, .total-cell, .avg-cell, .breakdown-cell,
+.info-cell-lighter, .total-cell-lighter, .avg-cell-lighter, .breakdown-cell-lighter {
+    border-bottom: 1px solid #333333 !important;
+    font-size: 15px !important;
+    text-align: center !important;
+}
+
+/* Add specific colors for each category */
+.info-cell {
+    background-color: #9BC1E2; /* Soft Sky Blue for Info */
+}
+
+.total-cell {
+    background-color: #B5D5B2; /* Soft Sage Green for Total Values */
+}
+
+.avg-cell {
+    background-color: #D0BED3; /* Soft Lavender for Average Values */
+}
+
+.breakdown-cell {
+    background-color: #F3A2A2; /* Soft Salmon for Commission Breakdown */
+}
+
+/* Lighter Versions */
+.info-cell-lighter {
+    background-color: #E1EFF9; /* Even Lighter Sky Blue */
+}
+
+.total-cell-lighter {
+    background-color: #F1F7E4; /* Even Lighter Sage Green */
+}
+
+.avg-cell-lighter {
+    background-color: #F7ECF7; /* Even Lighter Lavender */
+}
+
+.breakdown-cell-lighter {
+    background-color: #FCD9D9; /* Even Lighter Salmon */
 }
 
 .border-left {
-    border-left: 1px solid rgba(224, 224, 224, 1);
+    border-left: 1px solid lightgray;
 }
 
-/*.shops-statistics {*/
-/*    border-bottom: 1px solid rgba(224, 224, 224, 1);*/
-/*}*/
-
-/*.shops-statistics:last-child {*/
-/*    border-bottom: none;*/
-/*}*/
+.border-left-dark {
+    border-left: 1px solid #333333;
+}
